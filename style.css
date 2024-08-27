@@ -1,0 +1,474 @@
+/*STYLE FROM index.hmtl*/
+body {
+    font-family: Arial, sans-serif;
+    
+}
+
+
+/* Letras del titulo con video de fondo*/
+.Texto{
+    justify-content: center; /* Centra horizontalmente */
+align-items: center; /* Centra verticalmente */
+    font-size: 8e;
+    text-align: center;
+
+    background: linear-gradient(to right,   #0dafe0, #261b66);
+    background-repeat: no-repeat;
+    background-position: center;
+    color: transparent; 
+    background-clip: text;
+    font-family: Arial, Rounded MT Bold;
+
+      /* Fondo degradado para simular iluminación */
+      background: linear-gradient(45deg, #1509be, #00ffff);
+      background-size: 200% 200%;
+      animation: gradientBG 5s ease infinite;
+      
+      /* Aplicar efecto de texto iluminado */
+    
+      -webkit-background-clip: text;
+      background-clip: text;
+        /*
+      text-shadow: 0 0 20px rgba(238, 237, 237, 0.5);
+      filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.5));
+      */
+
+} 
+
+/* Animación para el fondo degradado */
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* RECUADRO DONDE CONTIENE LAS BORBUJAS DE TEXTO */
+
+.chat-container {
+display: flex;
+justify-content: center; /* Centra horizontalmente */
+
+height: 70vh; /* 100% de la altura de la ventana del navegador */
+margin-top: 5vh; /* Subir el diseño 5% del alto de la ventana */
+
+}
+.chat-window {
+    width: 90%;
+   
+    max-width: 600px; /* Limitar el ancho máximo */
+    height: 60vh; 
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    overflow-y: auto;
+    padding: 10px;
+} 
+/*_____________________________________*/
+.message {
+  
+
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 20px;
+    background-color: #0d81e0;
+    /* display: inline-block; */
+   /* max-width: 80%; */
+    padding: 10px;
+    width: auto;
+}
+
+/* POSIBLE CREACION DE RECUADRO
+ DONDE IRAN UBICADAS EL HISTORIAL 
+ DE CONVERSACIONES 
+
+.recuadro-window {
+    width: 200px;
+    height: 550px;
+     margin-top: -84px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    overflow-y: auto;
+    padding: 10px;
+    position: left;
+} */
+
+/*_________________________________*/
+/* Borbujas chat persona*/
+.user-message {
+    text-align: right;
+    /*background-color: #0dafe0;*/
+    background: linear-gradient(to right,   #0dafe0, #160092);
+    color: #fff;
+   
+}
+/* Borbujas chatbot*/
+.bot-message {
+
+    text-align: left;
+    /* background-color: #0d81e0;*/
+    background: linear-gradient(to right, #0d81e0, #004e92);
+    color: #fff;
+ 
+}
+
+/* Hora del mensaje  */
+/* Estilos para el mensaje y la hora */
+
+.message-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Alinear contenido a la izquierda */
+  
+}
+
+
+.message-time {
+  
+    margin-left: 13px;  /* Ajusta este valor para controlar el espacio */
+font-size: 0.5em; /* Tamaño de fuente más pequeño */
+color: #d3d0d0; /* Color de la hora */
+margin-top: -3px; /* alejar o Espacio superior */
+
+}
+
+/* ubicacion de la barra de mensaje 
+(donde uno escribe) */
+
+.input-area {
+display: flex;
+flex-direction: column; /* Alinear los elementos verticalmente */
+width: 90%;
+max-width: 600px; /* Limitar el ancho máximo */
+margin: 0 auto;
+margin-top: -10px;
+position: relative;
+}
+
+.input-area input {
+flex: 1;
+min-height: 40px; /* Altura mínima de la barra de entrada */
+padding: 14px 10px;
+border: 1px solid #ccc;
+border-radius: 10px;
+box-sizing: border-box;
+resize: vertical; /* Permitir redimensionamiento vertical */
+}
+
+/* Ubicacion y ajustes del boton enviar*/
+
+.input-area button {
+align-self: flex-end; /* Alinear el botón al final de la barra de entrada */
+margin-top: 10px; /* Espacio entre la barra de entrada y el botón */
+padding: 5px 10px;
+border: none;
+border-radius: 5px;
+background-color: #007bff;
+color: #c2c1c1;
+cursor: pointer;
+/*___________(si se quita esto el boton vuelve a su originalilidad)
+_____________________*/
+/*AÑADIDOS_(Controla el area
+ donde se ubica el boton y el efecto neon)_*/ 
+overflow: hidden;
+margin: 9px;
+position: relative;
+}
+
+/*Configuracion efecto neon boton*/
+.input-area button::before {
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, #00fffc, transparent);
+    transform: translateX(-100%);
+    transition: 0.6s;
+    position: absolute;
+}
+
+.input-area button:hover {
+    background: transparent;
+    box-shadow: 0 0 20px 5px #0d81e0;
+
+}
+/*___________ /!\ ________________PRUEBA___________*/
+/* Estilos para el modo oscuro */
+
+.modo_oscuro {
+    background-color: #333 ;
+    color: #1a96e9;
+}
+
+/* Ajustar la posición del interruptor
+ modo oscuro */
+
+.mode-toggle {
+ 
+    margin-top: -730px;
+    margin-right: -27%; 
+   text-align: center;
+      /* Mover 5 cm a la izquierda */
+
+}
+
+/* Estilos para el interruptor de tema */
+
+.theme-switch {
+    display: inline-block;
+    position: relative;
+    width: 60px;
+    height: 34px;
+  
+}
+
+.theme-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* Color del interruptor del tema claro 
+(Modifica ell color del interruptor 
+al pasar al modo claro)*/
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #5fa2cf;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: rgb(255, 255, 255);
+    transition: .4s;
+    border-radius: 50%;
+}
+
+/* Color del interruptor del tema oscuro
+ (Modifica ell color del interruptor al pasar
+  al modo oscuro)*/
+
+input:checked + .slider {
+    background: linear-gradient(to right, #004e92, #000428);
+}
+/* Borde del interruptor de los temas
+ claro oscuro*/
+input:focus + .slider {
+    box-shadow: 0 0 7px #1c7dcc;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+/* Estilos para el icono de sol y luna */
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+.sun-icon {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    color: #FFD700; /* Color amarillo */
+}
+
+.moon-icon {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    color: #666; /* Color gris oscuro */
+}
+
+
+/* ICONO E IMAGEN QUESE UBICA AL LADO
+ DE LAS BORBUJAS DEL BOT */
+
+.bot-icon-container {
+    width: 40px; /* Tamaño del contenedor del icono */
+    height: 40px;
+    border-radius: 50%; /* Forma circular */
+    overflow: hidden; /* Oculta partes de la imagen que excedan el contenedor */
+    margin-right: 10px; /* Espacio entre el icono y el mensaje */
+}
+/* */
+.bot-icon-container img {
+    width: 100%; /* Ajusta la imagen al tamaño del contenedor */
+    height: auto; /* Mantén la proporción de la imagen */
+}
+
+/*____________Diseño menu___________*/
+/* Estilos base */
+body {
+    font-family: Arial, Rounded MT Bold;
+    margin: 0;
+    padding: 0;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    
+}
+
+.dropdown-btn {
+    font-size: 24px;
+    cursor: pointer;
+    padding: 10px;
+  
+}
+   /* Ajustes del recuadro menu */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    /*BORDE DEL RECUADRO*/
+   
+   /* fondo desenfocado */
+    backdrop-filter: blur(10px);
+   /* background-color: transparent; */
+    min-width: 160px;
+    /* COLOR DE LOS BORDES DE LOS RECUADROS */
+    box-shadow: 0 8px 16px 0 rgba(14, 71, 228, 0.2);
+    z-index: 1;
+    border: 2px;
+    border-radius: 20px;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+/* Ajustes diseño, recuadros opciones del menu*/
+.dropdown-content a:hover {
+    background: linear-gradient(to right,   #0dafe0, #160092);
+    border-radius: 20px;
+}
+
+.show {
+    display: block;
+}
+/* Estilo, iconos al lado derecho de las borbuas de chat */
+.icon-container {
+width: 40px; /* Tamaño del contenedor del icono */
+height: 40px;
+border-radius: 50%; /* Forma circular */
+overflow: hidden; /* Oculta partes del icono que excedan el contenedor */
+margin-right: 10px; /* Espacio entre el icono y el mensaje */
+}
+
+.icon {
+width: 100%; /* Ajusta el tamaño del icono al tamaño del contenedor */
+height: auto; /* Mantén la proporción del icono */
+}
+
+
+    /* Estilos de los iconos  */
+    .iconos {
+        position: relative;
+        background: transparent;
+    }
+    .iconos img {
+position: absolute;
+
+
+
+max-height: 10%; /* Ajusta este valor según sea necesario */
+}
+    .iconos:hover {
+        background: transparent;
+    }
+
+
+
+    /* Estilos para los botones */
+.button {
+align-self: flex-end; /* Alinear el botón al final de la barra de entrada */
+margin-top: 5px; /* Espacio entre la barra de entrada y el botón */
+padding: 5px 10px;
+border: none;
+border-radius: 5px;
+background-color: #007bff;
+color: #c2c1c1;
+cursor: pointer;
+/*___________(si se quita esto el boton vuelve a su originalilidad)
+_____________________*/
+/*AÑADIDOS_(Controla el area
+ donde se ubica el boton y el efecto neon)_*/ 
+overflow: hidden;
+margin: 9px;
+position: relative;
+}
+
+/* Boton camara*/
+#capture {
+   
+
+    align-self: flex-end; /* Alinear los botones al final de la barra de entrada */
+    margin-top: 10px; /* Espacio entre la barra de entrada y los botones */
+    margin-left: 10px; /* Espacio entre los botones */
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: #007bff; /* Color de fondo del botón */
+    color: white; /* Color del texto del botón */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    position:relative;
+    transition: background-color 0.3s ease; /* Transición suave del color de fondo */
+}
+
+#capture:hover {
+ 
+    background-color: #0056b3; /* Cambio de color de fondo al pasar el cursor sobre el botón */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
