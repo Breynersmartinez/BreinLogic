@@ -241,6 +241,6 @@ async function handleUserMessage() {
          // Agrega un evento de clic al botón con el ID 'siguienteBtn'
 document.getElementById('Perfil').addEventListener('click', function() {
     // Redirige a la página 'index.html' al hacer clic en el botón
-    window.location.href = 'User.html';
+    window.location.href = 'https://breynersmartinez.github.io/User_chatbot.github.io/';
 });
 
