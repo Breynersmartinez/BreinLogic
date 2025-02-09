@@ -1,26 +1,4 @@
-/* MANEJO DE OBJETOS EN JS */
 
-   /*Mapeo de palabras clave*/
-
-  /* ( El metodo de soluciones comunes, 
-   contiene pares de clave y valor,
-   la clave representa un palabra que
-    la persona podria ingresar y 
-    el valor es la respuesta que esta
-     predeterinada en el objeto )*/
-
-     /* LIBRERIAS LENGUAJE NATURA PARA JS */
-/* (INSTALADA) TensorFlow.js para tareas de procesamiento de lenguaje 
-natural
-npm install @tensorflow/tfjs*/
-/*Natural Language Toolkit (NLTK) comúnmente utilizado 
-en Python pero también puede ser utilizado 
-en JavaScript a través de Node.js
- npm install nltk*/
- /* COMPROMISE:
- librería de procesamiento de lenguaje natural en JavaScript
- npm install compromise */
- // Función para mostrar el historial de conversaciones
  
  const Soluciones_Comunes = {
    
