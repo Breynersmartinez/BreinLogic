@@ -196,3 +196,5 @@ document.getElementById('logOut').addEventListener('click', function() {
               toggleDarkMode();
           }
       }
+
+      
