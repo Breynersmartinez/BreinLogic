@@ -10,7 +10,7 @@ body {
     /*Poner imagen de fondo*/
     /*Efecto desenfoque*/
     backdrop-filter: blur(5px);
-    background-image: url('https://th.bing.com/th/id/R.03108a211e10e86a6f4ae0f4ce9e7823?rik=uJy0dEnJuR0KuQ&pid=ImgRaw&r=0');
+    background-image: url('https://cdn.pixabay.com/photo/2018/09/14/10/26/texture-3676677_1280.jpg');
     background-size: cover; /* Cubre todo el fondo */
     background-repeat: no-repeat; /* Evita que la imagen se repita */
     background-position: center center; /* Centra la imagen en la página */
