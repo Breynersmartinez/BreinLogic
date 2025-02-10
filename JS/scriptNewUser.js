@@ -72,3 +72,8 @@ form.addEventListener('submit', function(event){
             }
         });
 });
+
+document.getElementById('login').addEventListener('click', function() {
+    // Redirige a la página 'index.html' al hacer clic en el botón
+    window.location.href = 'indexLogin.html';
+  });

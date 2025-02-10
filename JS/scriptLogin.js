@@ -8,7 +8,7 @@ function openDocument() {
 document.getElementById('siguienteBtn').addEventListener('click', function() {
     // Redirige a la página 'index.html' al hacer clic en el botón
    
-    window.location.href = 'https://breynersmartinez.github.io/Chat_chatbot.github.io/';
+    window.location.href = 'indexChatBot.html';
 });
 
 // Función para abrir un documento en una nueva ventana al hacer clic en el botón
@@ -16,3 +16,9 @@ function UCC() {
     // Abre una nueva ventana con la URL proporcionada
     window.open('https://www.ucc.edu.co/');
 }
+
+
+document.getElementById('register').addEventListener('click', function() {
+    // Redirige a la página 'index.html' al hacer clic en el botón
+    window.location.href = 'indexNewUser.html';
+  });
