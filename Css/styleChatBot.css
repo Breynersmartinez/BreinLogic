@@ -12,7 +12,7 @@ align-items: center; /* Centra verticalmente */
     font-size: 8e;
     text-align: center;
 
-    background: linear-gradient(to right,   #0dafe0, #261b66);
+    background: linear-gradient(to right,   #0dafe0, #5e4cc5);
     background-repeat: no-repeat;
     background-position: center;
     color: transparent; 
@@ -20,7 +20,7 @@ align-items: center; /* Centra verticalmente */
     font-family: Arial, Rounded MT Bold;
 
       /* Fondo degradado para simular iluminación */
-      background: linear-gradient(45deg, #1509be, #00ffff);
+      background: linear-gradient(45deg, #392fc5, #00ffff);
       background-size: 200% 200%;
       animation: gradientBG 5s ease infinite;
       

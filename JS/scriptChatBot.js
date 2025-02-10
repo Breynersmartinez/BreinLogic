@@ -40,24 +40,16 @@ async function handleUserMessage() {
     chatWindow.appendChild(userMessage);
 
     // Agregar mensaje de carga del bot
-    const botMessage = document.createElement("div");
-    botMessage.classList.add("message", "bot-message");
-    botMessage.textContent = "Pensando...";
-    chatWindow.appendChild(botMessage);
+const botMessage = document.createElement("div");
+botMessage.classList.add("message", "bot-message");
+botMessage.textContent = "Pensando...";
+chatWindow.appendChild(botMessage);
 
-    // Obtener respuesta de la IA
-    const botResponse = await generateResponse(userInput);
-    botMessage.textContent = botResponse;
+// Pequeña pausa antes de llamar a la API (500ms)
+await new Promise(resolve => setTimeout(resolve, 500));
 
-    // Guardar historial de la conversación
-    const conversacion = { userInput, botResponse };
-    const historialConversaciones = cargarHistorialConversaciones();
-    historialConversaciones.push(conversacion);
-    guardarHistorialConversaciones(historialConversaciones);
-
-    // Limpiar input y hacer scroll
-    document.getElementById("userInput").value = " ";
-    chatWindow.scrollTop = chatWindow.scrollHeight;
+const botResponse = await generateResponse(userInput);
+botMessage.textContent = botResponse;
 }
 //funcion boton enviar
 document.addEventListener("DOMContentLoaded", function () {
@@ -184,3 +176,23 @@ document.getElementById('logOut').addEventListener('click', function() {
   // Redirige a la página 'index.html' al hacer clic en el botón
   window.location.href = 'indexLogin.html';
 });
+
+ /* La  función se llama cuando 
+     se cambia el interruptor de tema
+      (modo claro / oscuro).
+       Dependiendo del estado del interruptor,
+        llama a toggleDarkMode() para cambiar
+         entre los modos claro y oscuro.*/
+ 
+
+         function toggleDarkMode() {
+          document.body.classList.toggle('modo_oscuro');
+      }
+         function toggleTheme() {
+          var themeSwitch = document.getElementById("themeSwitch");
+          if (themeSwitch.checked) {
+              toggleDarkMode();
+          } else {
+              toggleDarkMode();
+          }
+      }
