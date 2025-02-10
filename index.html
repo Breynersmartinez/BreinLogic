@@ -3,83 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IA JURIDICA</title>
-   <!--<link rel="stylesheet" href="style.css"> --> 
-  
-    <link rel="stylesheet" href="style.css">
-  
-    <link rel="icon" href="https://1.bp.blogspot.com/-2iRg97PDe2s/WTSj0l1Xi7I/AAAAAAAAAQA/eqUsQOF5Pnkmu20gy_ZJIQQPG7JlkUTSACLcB/s1600/UCC.png" type="image/x-icon"> <!-- Aparece el icono o la imagen en la pestaña del navegador -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@300;400;600;700&display=swap">
+    <title>Asesoramiento Jurídico UCC</title>
+    <link rel="icon" href="https://1.bp.blogspot.com/-2iRg97PDe2s/WTSj0l1Xi7I/AAAAAAAAAQA/eqUsQOF5Pnkmu20gy_ZJIQQPG7JlkUTSACLcB/s1600/UCC.png" type="image/x-icon">
+    <link rel="stylesheet" href="Css/style.css">
 </head>
 <body>
-    <!--Menu-->
-    <div class="dropdown">
-        <div class="dropdown-btn" onclick="toggleDropdown()">☰</div>
-        <div class="dropdown-content" id="dropdownContent">
-          <!-- <type="icon" class="iconos">
-            <img src="Imagenes/ajsutes_azl.png   " alt=" Google Icon ">  --> 
-          <a href="#">⚙️Ajustes </a>
-          <a href="#" onclick="crearNuevaConversacion()">📝 Crear Nueva Conversación</a>
-          <a href="#" onclick="mostrarHistorialConversaciones()">🕒 Historial de Conversaciones</a>
-          <a href="#" id="Perfil">👤 Perfil</a>
-          <a href="https://breynersmartinez.github.io/login_chatbot.github.io/">🔒 Cerrar Sesión</a>
-       
-            <label for="themeSwitch">Tema:</label>
-            <label class="theme-switch">
-                <input type="checkbox" id="themeSwitch" onchange="toggleTheme()">
-                <span class="slider round"></span>
-                <span class="sun-icon">🌤️</span>
-                <span class="moon-icon">🌙</span>
-            </label> 
-        </div> 
+    <header>
+        <div class="logo">
+            <img src="https://1.bp.blogspot.com/-2iRg97PDe2s/WTSj0l1Xi7I/AAAAAAAAAQA/eqUsQOF5Pnkmu20gy_ZJIQQPG7JlkUTSACLcB/s1600/UCC.png" alt="Logo UCC">
         </div>
+        <section class="menu">
+            <ul class="menu-list">
+                <li>Inicio</li>
+                <li onclick="Info_ucc()">Servicio</li>
+                <li onclick="Info_ucc()">Acerca De nosotros</li>
+                <li onclick="contactanosucc()">Contacto</li>
+                   <!-- Botón que al presionar nos lleva al Inicio de sesion o registro del usuarios -->
+                  <li onclick="inicio_sesion_ucc()">Inicio de Sesión</li>
+            </ul>
 
-        <div class="main-background">
-            <div>
-              <h3>IA JURIDICA 🤖</h3>
-              <p>Te puedo asesorar juridicamente con casos no complejos.</p>
+            <button>
+                <i class="fas fa-times"></i>
+                <i class="fas fa-bars"></i>
+            </button>
+        </section>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="overlay"></div>
+            <div class="hero-content">
+                <h1>Asesoramiento Jurídico Profesional</h1>
+                <p>"El apoyo que necesitas en tus procesos jurídicos. Somos la Universidad Cooperativa de Colombia, brindando soluciones reales a conflictos legales de manera gratuita."</p>
+                <a onclick="contactanosUCC()" class="cta-button">Contactanos</a>
             </div>
-          </div>
- 
-    <!--Letraas con imagen de fondo aplicada-->
-    <div class="Texto">
-        <h1 class="Texto">IA JURIDICA 🤖</h1>
-    </div>
-<!--recuadro que contiene los chats 
--->
-    <div class="chat-container">
-        <div class="chat-window" id="chatWindow">
-
-            <!-- lim-->
-            <div class="message bot-message">
-            <div class="icon-container">
-                <img src="https://img.freepik.com/free-vector/cute-robot-operating-laptop-cartoon-icon-illustration-science-technology-icon-concept-isolated-flat-cartoon-style_138676-1776.jpg?size=338&ext=jpg"  alt="Icono" class="icon">
+            <div class="hero-image">
+                <img src="https://th.bing.com/th/id/R.dee8c068185164ec7bdfdd6c2d467603?rik=0Ib8%2fhG%2bN3O2RQ&pid=ImgRaw&r=0" alt="Legal Assistance">
             </div>
-            <div  class="message bot-message"> Hola, como inteligencia Artificial puedo asesorarte con casos no complejos, en el documento te dejo los casos en los que puedo ayudarte: <button id="siguienteBtn">">Abrir Documento </button></div>
-            
-            
-        </div>
-            <!--lim-->
+        </section>
 
+        <section class="about">
+            <h2>Universidad Cooperativa de Colombia - Cali</h2>
+            <div class="about-content">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3982.8332865711604!2d-76.55374192493363!3d3.390850996583784!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e30a8832212050d%3A0xb7281223f25ff99b!2sUCC%20Cali!5e0!3m2!1ses-419!2sco!4v1725750216407!5m2!1ses-419!2sco" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </section>
+    </main>
 
-            
-        </div> 
-    </div> <!-- Cierre de chat-container -->
-    <div class="input-area">
-        <input type="text" id="userInput" placeholder="Escribe tu consulta jurídica...">
-        <button id="sendButton">Enviar</button>
-    </div>
-    
-  
+    <footer>
+        <p>&copy; 2024 Asesoramiento Jurídico UCC - Todos los derechos reservados.</p>
+    </footer>
 
-
-<script src="script.js"></script>
-
-
-
-
-
-
-
-   
+    <script src="JS/script.js"></script>
 </body>
 </html>

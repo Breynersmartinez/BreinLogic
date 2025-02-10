@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IA JURIDICA</title>
+   <!--<link rel="stylesheet" href="style.css"> --> 
+  
+    <link rel="stylesheet" href="Css/styleChatBot.css">
+  
+    <link rel="icon" href="https://1.bp.blogspot.com/-2iRg97PDe2s/WTSj0l1Xi7I/AAAAAAAAAQA/eqUsQOF5Pnkmu20gy_ZJIQQPG7JlkUTSACLcB/s1600/UCC.png" type="image/x-icon"> <!-- Aparece el icono o la imagen en la pestaña del navegador -->
+</head>
+<body>
+    <!--Menu-->
+    <div class="dropdown">
+        <div class="dropdown-btn" onclick="toggleDropdown()">☰</div>
+        <div class="dropdown-content" id="dropdownContent">
+          <!-- <type="icon" class="iconos">
+            <img src="Imagenes/ajsutes_azl.png   " alt=" Google Icon ">  --> 
+          <a href="#">⚙️Ajustes </a>
+          <a href="#" onclick="crearNuevaConversacion()">📝 Crear Nueva Conversación</a>
+          <a href="#" onclick="mostrarHistorialConversaciones()">🕒 Historial de Conversaciones</a>
+          <a href="#" id="Perfil">👤 Perfil</a>
+          <a href="#"  id="logOut">🔒 Cerrar Sesión</a>
+       
+            <label for="themeSwitch">Tema:</label>
+            <label class="theme-switch">
+                <input type="checkbox" id="themeSwitch" onchange="toggleTheme()">
+                <span class="slider round"></span>
+                <span class="sun-icon">🌤️</span>
+                <span class="moon-icon">🌙</span>
+            </label> 
+        </div> 
+        </div>
+
+        <div class="main-background">
+            <div>
+              <h3>IA JURIDICA 🤖</h3>
+              <p>Te puedo asesorar juridicamente con casos no complejos.</p>
+            </div>
+          </div>
+ 
+    <!--Letraas con imagen de fondo aplicada-->
+    <div class="Texto">
+        <h1 class="Texto">IA JURIDICA 🤖</h1>
+    </div>
+<!--recuadro que contiene los chats 
+-->
+    <div class="chat-container">
+        <div class="chat-window" id="chatWindow">
+
+            <!-- lim-->
+            <div class="message bot-message">
+            <div class="icon-container">
+                <img src="https://img.freepik.com/free-vector/cute-robot-operating-laptop-cartoon-icon-illustration-science-technology-icon-concept-isolated-flat-cartoon-style_138676-1776.jpg?size=338&ext=jpg"  alt="Icono" class="icon">
+            </div>
+            <div  class="message bot-message"> Hola, como inteligencia Artificial puedo asesorarte con casos no complejos, en el documento te dejo los casos en los que puedo ayudarte: <button id="siguienteBtn">">Abrir Documento </button></div>
+            
+            
+        </div>
+            <!--lim-->
+
+
+            
+        </div> 
+    </div> <!-- Cierre de chat-container -->
+    <div class="input-area">
+        <input type="text" id="userInput" placeholder="Escribe tu consulta jurídica...">
+        <button id="sendButton">Enviar</button>
+    </div>
+    
+  
+
+
+<script src="JS/scriptChatBot.js"></script>
+
+
+
+
+
+
+
+   
+</body>
+</html>

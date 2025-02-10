@@ -1,0 +1,178 @@
+/* Estilos globales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    /*Poner imagen de fondo*/
+    /*Efecto desenfoque*/
+    backdrop-filter: blur(5px);
+    background-image: url('https://th.bing.com/th/id/R.03108a211e10e86a6f4ae0f4ce9e7823?rik=uJy0dEnJuR0KuQ&pid=ImgRaw&r=0');
+    background-size: cover; /* Cubre todo el fondo */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-position: center center; /* Centra la imagen en la página */
+}
+
+/* Letras del título con imagen de fondo */
+.Texto {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: transparent;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    
+    /* Fondo degradado para simular iluminación */
+    background: linear-gradient(45deg, #1e6cb4, #1fa1c9);
+    background-size: 200% 200%;
+    animation: gradientBG 5s ease infinite;
+    
+    /* Aplicar efecto de texto iluminado */
+  
+    -webkit-background-clip: text;
+    background-clip: text;
+      /*
+    text-shadow: 0 0 20px rgba(238, 237, 237, 0.5);
+    filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.5));
+    */
+}
+
+/* Animación para el fondo degradado */
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Estilos del contenedor de imágenes */
+.images-container_log {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+/* Estilos de las imágenes */
+.images-container_log img {
+    width: 100px; /* Ajustar el ancho de las imágenes según sea necesario */
+    border: 2px solid #F5F5F5;
+    border-radius: 50%;
+    margin: 0 10px;
+    transition: all 0.4s ease;
+    box-shadow: 0 0 30px #1c7dcc; /* Iluminacion de los bordes */
+}
+
+.images-container_log img:hover {
+    transform: scale(1.1);
+}
+
+/* Estilos del formulario de inicio de sesión */
+.login-form {
+    background: #FFFFFF;
+    padding: 2rem;
+    border-radius: 2rem;
+    max-width: 400px;
+    box-shadow: 0 0 30px #1c7dcc;
+}
+
+.login-form input[type="email"],
+.login-form input[type="password"],
+.login-form button {
+    width: 100%;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    outline: none;
+    font-size: 1rem;
+}
+
+.login-form button {
+    background: #1fa1c9;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+.login-form button:hover {
+    background: linear-gradient(to right, #1fa1c9, #160092);
+}
+
+/* Estilos del botón de Google */
+.google-btn {
+    position: relative;
+    background: #1fa1c9;
+}
+
+.google-btn img {
+    position: absolute;
+    left: 5px; /* Ajustar este valor según sea necesario */
+    top: 50%;
+    transform: translateY(-50%);
+    max-height: 80%; /* Ajustar este valor según sea necesario */
+}
+
+.google-btn:hover {
+    background: #1fa1c9;
+}
+
+
+
+/* DISEÑO DEL PIE DE PAGINA DEL SITIO */
+html.PDP {
+    min-height: 100%;
+    position: relative;
+  }
+  body.PDP {
+    margin: 0;
+    margin-bottom: 10px;
+  }
+  footer {
+    /*Efecto fondo*/
+    backdrop-filter: blur(10px);
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    color: white;
+  }
+
+  footer {
+    /*Ajuste del color del pie de la pagina*/
+    
+   
+    /*Ajuste del ancho del pie de la pagina*/
+    padding: 4px 0;
+  
+  }
+  
+  .container_PDP {
+    width: 100%;
+  }
+  
+  p.PDP {
+    font-family: Arial, Rounded MT Bold;
+    color: #464545;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  ul.PDP {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  li {
+    display: inline-block;
+    padding: 0 10px;
+  }
+
+
+  
