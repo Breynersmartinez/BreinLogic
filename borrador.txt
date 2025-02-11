@@ -1,5 +1,8 @@
 
- 
+ //const API_KEY = "AIzaSyCYuGCgTtw70-Mdn1Dj5LqryYDgprcMECE"; // Usa variables de entorno en producción
+
+
+
  const Soluciones_Comunes = {
    
 };
