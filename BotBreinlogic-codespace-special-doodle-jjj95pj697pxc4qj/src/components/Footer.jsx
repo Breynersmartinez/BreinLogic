@@ -3,7 +3,7 @@ import React from "react";
 const Footer = () => {
   return (
     <footer>
-      <p>&copy; 2024 Asesoramiento Jurídico UCC - Todos los derechos reservados.</p>
+      <p>&copy; 2025 Semillero De Investigacion UCC - Todos los derechos reservados.</p>
     </footer>
   );
 };

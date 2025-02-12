@@ -5,9 +5,9 @@ const Hero = () => {
     <section className="hero">
       <div className="overlay"></div>
       <div className="hero-content">
-        <h1>Asesoramiento Jurídico Profesional</h1>
+        <h1>Semillero De Investigacion UCC</h1>
         <p>
-          "El apoyo que necesitas en tus procesos jurídicos. Somos la Universidad Cooperativa de Colombia, brindando soluciones reales a conflictos legales de manera gratuita."
+          "En la Universidad Cooperativa de Colombia, sede Cali, estamos comprometidos con la excelencia académica y la innovación. El Semillero de Investigación es un espacio destinado a fomentar el espíritu investigativo y el desarrollo de competencias científicas entre nuestros estudiantes. "
         </p>
         <button class="cta-button" onClick={() => window.open("mailto:correspondencia.cal@ucc.edu.co?subject=Consulta&body=Hola,%20tengo%20una%20consulta.")}>
           Contáctanos
