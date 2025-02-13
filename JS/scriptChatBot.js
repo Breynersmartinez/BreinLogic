@@ -8,8 +8,10 @@ const answers = part1 + part2 + part3 + part4;
 const answersbot = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${answers}`;
 
 async function generateResponse(userInput) {
+    const contexto = contenidoDocumento ? `Documento: ${contenidoDocumento}\n\nPregunta: ${userInput}` : userInput;
+
     const data = {
-        contents: [{ parts: [{ text: userInput }] }]
+        contents: [{ parts: [{ text: contexto }] }]
     };
 
     try {
@@ -21,7 +23,6 @@ async function generateResponse(userInput) {
 
         const result = await response.json();
 
-        // Extraer solo el texto de la respuesta de la IA
         if (result && result.candidates && result.candidates.length > 0) {
             return result.candidates[0].content.parts[0].text || "No tengo una respuesta en este momento.";
         } else {
@@ -32,6 +33,7 @@ async function generateResponse(userInput) {
         return "Hubo un error procesando tu solicitud.";
     }
 }
+
 
 async function handleUserMessage() {
     const userInput = document.getElementById("userInput").value;
@@ -210,25 +212,28 @@ document.getElementById('logOut').addEventListener('click', function() {
       
       
       /* Procesamiento de archivos pdf */
-      // Función para extraer texto de un archivo PDF
-async function extraerTextoPDF(file) {
-    const reader = new FileReader();
-    reader.readAsArrayBuffer(file);
+      let contenidoDocumento = ""; // Variable global para almacenar el texto del PDF
 
-    return new Promise((resolve) => {
-        reader.onload = async function () {
-            const pdf = await pdfjsLib.getDocument({ data: reader.result }).promise;
-            let texto = "";
-
-            for (let i = 1; i <= pdf.numPages; i++) {
-                const page = await pdf.getPage(i);
-                const content = await page.getTextContent();
-                texto += content.items.map(item => item.str).join(" ") + " ";
-            }
-            resolve(texto);
-        };
-    });
-}
+      async function extraerTextoPDF(file) {
+          const reader = new FileReader();
+          reader.readAsArrayBuffer(file);
+      
+          return new Promise((resolve) => {
+              reader.onload = async function () {
+                  const pdf = await pdfjsLib.getDocument({ data: reader.result }).promise;
+                  let texto = "";
+      
+                  for (let i = 1; i <= pdf.numPages; i++) {
+                      const page = await pdf.getPage(i);
+                      const content = await page.getTextContent();
+                      texto += content.items.map(item => item.str).join(" ") + " ";
+                  }
+      
+                  contenidoDocumento = texto; // Guardamos el contenido en la variable global
+                  resolve(texto);
+              };
+          });
+      }
 
 // Función para manejar la carga de archivos
 async function handleFileUpload(event) {
