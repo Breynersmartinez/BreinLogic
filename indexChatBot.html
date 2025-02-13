@@ -6,6 +6,9 @@
     <title>𝘽𝙍𝙀𝙄𝙉𝙇𝙊𝙂𝙄𝘾</title>
    <!--<link rel="stylesheet" href="style.css"> --> 
   
+<!--Procesamiento de archivos pdf-->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.14.305/pdf.min.js"></script>
+
     <link rel="stylesheet" href="Css/styleChatBot.css">
   
     <link rel="icon" href="https://static.vecteezy.com/system/resources/thumbnails/006/240/761/small/initial-letter-b-tech-logo-design-template-element-eps10-vector.jpg" type="image/x-icon"> <!-- Aparece el icono o la imagen en la pestaña del navegador -->
@@ -60,16 +63,30 @@
         </div>
             <!--lim-->
 
+            
 
             
         </div> 
     </div> <!-- Cierre de chat-container -->
     <div class="input-area">
+        
+
+
+      <!--Procesamiento de archivos pdf-->
+     
+       
+        <input type="file" id="uploadFile" accept="application/pdf" for="uploadFile" class="custom-file-upload">
+        
+      </input>
+    
+     
+
         <input type="text" id="userInput" placeholder="Enviar mensaje a 𝘽𝙍𝙀𝙄𝙉𝙇𝙊𝙂𝙄𝘾">
         <button id="sendButton">Enviar</button>
+      
     </div>
     
-  
+
 
 
 <script src="JS/scriptChatBot.js"></script>

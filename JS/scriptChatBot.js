@@ -203,4 +203,48 @@ document.getElementById('logOut').addEventListener('click', function() {
           }
       }
 
+
+
+
+
       
+      
+      /* Procesamiento de archivos pdf */
+      // Función para extraer texto de un archivo PDF
+async function extraerTextoPDF(file) {
+    const reader = new FileReader();
+    reader.readAsArrayBuffer(file);
+
+    return new Promise((resolve) => {
+        reader.onload = async function () {
+            const pdf = await pdfjsLib.getDocument({ data: reader.result }).promise;
+            let texto = "";
+
+            for (let i = 1; i <= pdf.numPages; i++) {
+                const page = await pdf.getPage(i);
+                const content = await page.getTextContent();
+                texto += content.items.map(item => item.str).join(" ") + " ";
+            }
+            resolve(texto);
+        };
+    });
+}
+
+// Función para manejar la carga de archivos
+async function handleFileUpload(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+
+    const chatWindow = document.getElementById("chatWindow");
+    const botMessage = document.createElement("div");
+    botMessage.classList.add("message", "bot-message");
+    botMessage.textContent = "Procesando documento...";
+    chatWindow.appendChild(botMessage);
+
+    const textoDocumento = await extraerTextoPDF(file);
+    const botResponse = await generateResponse(textoDocumento);
+    botMessage.textContent = botResponse;
+}
+
+// Asignar evento al input de carga de archivos
+document.getElementById("uploadFile").addEventListener("change", handleFileUpload);
