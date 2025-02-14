@@ -9,7 +9,9 @@
 <!--Procesamiento de archivos pdf-->
    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.14.305/pdf.min.js"></script>
 
-    <link rel="stylesheet" href="Css/styleChatBot.css">
+    <link rel="stylesheet" href="Css/Bot/styleChatBot.css">
+    <link rel="stylesheet" href="Css/Bot/HistorialBot.css">
+    <link rel="stylesheet" href="Css/Bot/MenuBot.css">
   
     <link rel="icon" href="https://static.vecteezy.com/system/resources/thumbnails/006/240/761/small/initial-letter-b-tech-logo-design-template-element-eps10-vector.jpg" type="image/x-icon"> <!-- Aparece el icono o la imagen en la pestaña del navegador -->
 </head>
@@ -21,10 +23,12 @@
           <!-- <type="icon" class="iconos">
             <img src="Imagenes/ajsutes_azl.png   " alt=" Google Icon ">  --> 
           <a href="#">⚙️Ajustes </a>
-          <a href="#" onclick="crearNuevaConversacion()">📝 Crear Nueva Conversación</a>
-          <a href="#" onclick="mostrarHistorialConversaciones()">🕒 Historial de Conversaciones</a>
+          <a href="#" onclick="crearNuevaConversacion()">➕  Crear Nueva Conversación</a>
+          <div id="historialContainer"> 🕒 Historial de Conversaciones</div>
           <a href="#" id="Perfil">👤 Perfil</a>
           <a href="#"  id="logOut">🔒 Cerrar Sesión</a>
+          <a href="#"  id="Documentation">📝 Documentacion </a>
+           
        
             <label for="themeSwitch">Tema:</label>
             <label class="theme-switch">
@@ -57,7 +61,7 @@
             <div class="icon-container">
                 <img src="https://img.freepik.com/free-vector/cute-robot-operating-laptop-cartoon-icon-illustration-science-technology-icon-concept-isolated-flat-cartoon-style_138676-1776.jpg?size=338&ext=jpg"  alt="Icono" class="icon">
             </div>
-            <div  class="message bot-message"> Hola, soy Una IA  que combina lógica e inteligencia artificial para analizar datos, y documentos PDF.🚀💡 <!--<button id="siguienteBtn">">Abrir Documento </button>--></div>
+            <div  class="message bot-message"> Hola, soy Una IA  que combina lógica e inteligencia artificial para procesar datos, y documentos PDF.🚀💡 <!--<button id="siguienteBtn">">Abrir Documento </button>--></div>
             
             
         </div>
@@ -76,23 +80,26 @@
      
        
         <input type="file" id="uploadFile" accept="application/pdf" for="uploadFile" class="custom-file-upload">
-        
+       
       </input>
     
      
 
         <input type="text" id="userInput" placeholder="Enviar mensaje a 𝘽𝙍𝙀𝙄𝙉𝙇𝙊𝙂𝙄𝘾">
         <button id="sendButton">Enviar</button>
+        
       
     </div>
     
 
 
 
-<script src="JS/scriptChatBot.js"></script>
-
-
-
+<script src="JS/Bot/scriptChatBot.js"></script>
+<script src="JS/Bot/TemescriptChatBot.js"></script>
+<script src="JS/Bot/Historia.scriptChatbot.js"></script>
+<script src="JS/Bot/RedirectionscriptChatBot.js"></script>
+<script src="JS/Bot/MenuBot.js"></script>
+<script src="JS/Bot/PDFBot.js"></script>
 
 
 
