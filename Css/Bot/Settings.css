@@ -1,0 +1,15 @@
+.dropdown-content-settings {
+    display: none;
+    position: absolute;
+    backdrop-filter: blur(10px);
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+   
+}
+
+.dropdown-content-settings.show {
+    display: block;
+    border-radius: 20px;
+   
+}

@@ -12,33 +12,36 @@
     <link rel="stylesheet" href="Css/Bot/styleChatBot.css">
     <link rel="stylesheet" href="Css/Bot/HistorialBot.css">
     <link rel="stylesheet" href="Css/Bot/MenuBot.css">
+    <link rel="stylesheet" href="Css/Bot/Settings.css">
   
     <link rel="icon" href="https://static.vecteezy.com/system/resources/thumbnails/006/240/761/small/initial-letter-b-tech-logo-design-template-element-eps10-vector.jpg" type="image/x-icon"> <!-- Aparece el icono o la imagen en la pestaña del navegador -->
 </head>
 <body>
-    <!--Menu-->
-    <div class="dropdown">
-        <div class="dropdown-btn" onclick="toggleDropdown()">☰</div>
-        <div class="dropdown-content" id="dropdownContent">
-          <!-- <type="icon" class="iconos">
-            <img src="Imagenes/ajsutes_azl.png   " alt=" Google Icon ">  --> 
-          <a href="#">⚙️Ajustes </a>
-          <a href="#" onclick="crearNuevaConversacion()">➕  Crear Nueva Conversación</a>
-          <div id="historialContainer"> 🕒 Historial de Conversaciones</div>
-          <a href="#" id="Perfil">👤 Perfil</a>
-          <a href="#"  id="logOut">🔒 Cerrar Sesión</a>
-          <a href="#"  id="Documentation">📝 Documentacion </a>
-           
-       
-            <label for="themeSwitch">Tema:</label>
-            <label class="theme-switch">
-                <input type="checkbox" id="themeSwitch" onchange="toggleTheme()">
-                <span class="slider round"></span>
-                <span class="sun-icon">🌤️</span>
-                <span class="moon-icon">🌙</span>
-            </label> 
-        </div> 
+   <!-- Botón de menú principal -->
+   <div class="dropdown">
+    <div class="dropdown-btn" onclick="toggleDropdown()">☰</div>
+    <div class="dropdown-content" id="dropdownContent">
+        <a href="#" onclick="crearNuevaConversacion()">➕ Crear Nueva Conversación</a>
+        <div id="historialContainer"> 🕒 Historial de Conversaciones</div>
+        <a href="#" id="Documentation">📝 Documentacion</a>
+        
+        <!-- Botón de Ajustes -->
+        <div class="dropdown-settings">
+            <div class="dropdown-btnSettings" onclick="toggleSettings()">⚙️ Ajustes</div>
+            <div class="dropdown-content-settings" id="settingsContent">
+                <a href="#" id="Perfil">👤 Perfil</a>
+                <a href="#" id="logOut">🔒 Cerrar Sesión</a>
+                <label for="themeSwitch">Tema:</label>
+                <label class="theme-switch">
+                    <input type="checkbox" id="themeSwitch" onchange="toggleTheme()">
+                    <span class="slider round"></span>
+                    <span class="sun-icon">🌤️</span>
+                    <span class="moon-icon">🌙</span>
+                </label>
+            </div>
         </div>
+    </div>
+</div>
 
         <div class="main-background">
             <div>
@@ -100,7 +103,7 @@
 <script src="JS/Bot/RedirectionscriptChatBot.js"></script>
 <script src="JS/Bot/MenuBot.js"></script>
 <script src="JS/Bot/PDFBot.js"></script>
-
+<script src="JS/Bot/Settings.js"></script>
 
 
 

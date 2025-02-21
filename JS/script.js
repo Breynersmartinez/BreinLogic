@@ -72,3 +72,9 @@ function leerMas(){
 document.querySelector('.menu-toggle').addEventListener('click', () => {
     document.querySelector('.menu-list').classList.toggle('active');
 });
+
+// Script para el menú responsivo
+document.querySelector('.menu-toggle').addEventListener('click', () => {
+    const menuList = document.querySelector('.menu-list');
+    menuList.classList.toggle('active');
+});
