@@ -1,8 +1,7 @@
-var menu = document.querySelector('.menu');
-var menuBtn = document.querySelector('.menu button');
-menuBtn.addEventListener('click', () => {
-menu.classList.toggle('opened')
-})
+document.querySelector('.menu-toggle').addEventListener('click', () => {
+    const menuList = document.querySelector('.menu-list');
+    menuList.classList.toggle('active');
+});
 
 /*
 correspondencia.cal@ucc.edu.co es el destinatario.
