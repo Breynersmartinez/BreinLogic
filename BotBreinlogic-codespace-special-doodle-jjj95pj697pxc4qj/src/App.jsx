@@ -1,18 +1,14 @@
-import React from "react";
-import Header from "./components/Header";
-import Hero from "./components/Hero";
-import About from "./components/About";
-import Footer from "./components/Footer";
+import ChatWithGemini from './components/ChatWithGemini'
+import { Container } from '@chakra-ui/react'
+import './App.css'
 
-const App = () => {
+function App() {
+
   return (
-    <div>
-      <Header />
-      <Hero />
-      <About />
-      <Footer />
-    </div>
-  );
-};
+    <Container maxW={'none'} className="App" bgColor={'black'} bgGradient={'linear(to-r, gray.800, blue.700)'} color={'black'}>
+      <ChatWithGemini />
+    </Container>
+  )
+}
 
-export default App;
+export default App

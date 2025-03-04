@@ -1,70 +1,55 @@
-# GitHub Codespaces ♥️ React
 
-Welcome to your shiny new Codespace running React! We've got everything fired up and running for you to explore React.
+# Gemini Bot
 
-You've got a blank canvas to work on from a git perspective as well. There's a single initial commit with the what you're seeing right now - where you go from here is up to you!
+## Description
 
-Everything you do here is contained within this one codespace. There is no repository on GitHub yet. If and when you’re ready you can click "Publish Branch" and we’ll create your repository and push up your project. If you were just exploring then and have no further need for this code then you can simply delete your codespace and it's gone forever.
+This project is an AI chatbot that uses the Gemini API from Google. It's designed for educational purposes, providing a practical example of how to implement a chat bot using Gemini API.
 
-This project was bootstrapped for you with [Vite](https://vitejs.dev/).
+The chatbot has the following features:
 
-## Available Scripts
+- **Multi-Conversation**: The chatbot can handle multiple conversations at once. It initializes the chat by calling `startChat()`, and then uses `sendMessage()` to send new user messages. These messages, along with the chatbot's responses, are appended to the chat history.
 
-In the project directory, you can run:
+- **User and Model Roles**: The chatbot uses two roles: 'user' and 'model'. The 'user' role provides the prompts, while the 'model' role provides the responses.
 
-### `npm start`
+- **Streaming**: The chatbot uses streaming for faster interactions. Instead of waiting for the model to complete the entire generation process, the chatbot can handle partial results for quicker responses.
 
-We've already run this for you in the `Codespaces: server` terminal window below. If you need to stop the server for any reason you can just run `npm start` again to bring it back online.
+ ## Screenshots
 
-Runs the app in the development mode.\
-Open [http://localhost:3000/](http://localhost:3000/) in the built-in Simple Browser (`Cmd/Ctrl + Shift + P > Simple Browser: Show`) to view your running application.
+  ![Screenshot 2023-12-31 at 6 41 27 PM](https://github.com/SaiBarathR/gemini-bot-react/assets/58382813/fe6aa8e8-40bb-468a-bb21-2a8697c195ba)
 
-The page will reload automatically when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+## Dependencies
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+This project uses the following libraries:
 
-### `npm run build`
+- React
+- Vite
+- Tailwind
+- Chakra UI
+- React Markdown
+- @google/generative-ai
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## API Key
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+To run this project, you'll need an API key from Google. You can get one for free at [Google AI](https://ai.google.dev/). The free API key comes with some limitations:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Rate Limit: The free API key allows for up to 60 queries per minute.
+- Data Usage: The input/output data is used to improve Google's products.
 
-## Learn More
+## Usage
 
-You can learn more in the [Vite documentation](https://vitejs.dev/guide/).
+To use this project:
 
-To learn Vitest, a Vite-native testing framework, go to [Vitest documentation](https://vitest.dev/guide/)
+1. Clone the repository.
+2. Install the dependencies.
+3. Insert your API key.
+4. Run the project.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## License
 
-### Code Splitting
+This project is free to use for educational purposes.
 
-This section has moved here: [https://sambitsahoo.com/blog/vite-code-splitting-that-works.html](https://sambitsahoo.com/blog/vite-code-splitting-that-works.html)
+## Links
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://github.com/btd/rollup-plugin-visualizer#rollup-plugin-visualizer](https://github.com/btd/rollup-plugin-visualizer#rollup-plugin-visualizer)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://dev.to/hamdankhan364/simplifying-progressive-web-app-pwa-development-with-vite-a-beginners-guide-38cf](https://dev.to/hamdankhan364/simplifying-progressive-web-app-pwa-development-with-vite-a-beginners-guide-38cf)
-
-### Advanced Configuration
-
-This section has moved here: [https://vitejs.dev/guide/build.html#advanced-base-options](https://vitejs.dev/guide/build.html#advanced-base-options)
-
-### Deployment
-
-This section has moved here: [https://vitejs.dev/guide/build.html](https://vitejs.dev/guide/build.html)
-
-### Troubleshooting
-
-This section has moved here: [https://vitejs.dev/guide/troubleshooting.html](https://vitejs.dev/guide/troubleshooting.html)
+- [Google AI](https://ai.google.dev/)
+- [Google AI Web QuickStart](https://ai.google.dev/tutorials/web_quickstart)
