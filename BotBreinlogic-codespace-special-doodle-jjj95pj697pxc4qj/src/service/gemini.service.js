@@ -3,7 +3,7 @@ import { config } from "../utils/config";
 
 const GeminiService = (function () {
 
-    const MODEL_NAME = "gemini-pro";
+    const MODEL_NAME = "gemini-1.5-flash";
     const API_KEY = config.API_KEY;
     const genAI = new GoogleGenerativeAI(API_KEY);
     const service = {};

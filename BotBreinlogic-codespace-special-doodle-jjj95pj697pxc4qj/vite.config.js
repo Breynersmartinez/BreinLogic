@@ -1,15 +1,10 @@
+
+
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
+// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  server: {
-    host: true,
-    strictPort: true,
-    port: 8000
-  },
-  define: {
-    global: 'window',
-  },
-  base: '/gemini-bot-react/'
+  base: '/gemini-bot-react/', // Link page
 })
