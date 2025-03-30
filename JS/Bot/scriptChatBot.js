@@ -1,9 +1,4 @@
-const part1 = "AIzaSy";
-const part2 = "CYuGCgTtw70";
-const part3 = "-Mdn1Dj5Lqry";
-const part4 = "YDgprcMECE";
-
-const answers = part1 + part2 + part3 + part4;
+const answers = "AIzaSyCYuGCgTtw70-Mdn1Dj5LqryYDgprcMECE"; // Usa variables de entorno en producción
 
 
 
