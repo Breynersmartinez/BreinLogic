@@ -1,10 +1,17 @@
 .dropdown-content-settings {
     display: none;
     position: absolute;
+    /*BORDE DEL RECUADRO*/
+   
+   /* fondo desenfocado */
     backdrop-filter: blur(10px);
+   /* background-color: transparent; */
     min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    /* COLOR DE LOS BORDES DE LOS RECUADROS */
+    box-shadow: 0 8px 16px 0 rgba(14, 71, 228, 0.2);
     z-index: 1;
+    border: 2px;
+    border-radius: 20px;
    
 }
 
