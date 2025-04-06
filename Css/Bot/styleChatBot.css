@@ -69,40 +69,7 @@ margin-top: 5vh; /* Subir el diseño 5% del alto de la ventana */
     padding: 10px;
 } 
 /*_____________________________________*/
-.message {
-  
 
-    margin-bottom: 20px;
-    padding: 20px;
-    border-radius: 20px;
-    background-color: #0d81e0;
-    /* display: inline-block; */
-   /* max-width: 80%; */
-    padding: 10px;
-    width: auto;
-}
-
-
-
-/*_________________________________*/
-/* Borbujas chat persona*/
-.user-message {
-    text-align: right;
-    /*background-color: #0dafe0;*/
-    background: linear-gradient(to right,   #0dafe0, #160092);
-    color: #fff;
-   
-}
-/* Mensaje del bot */
-.bot-message {
-    text-align: left;
-    background: linear-gradient(to right, #0d81e0, #004e92);
-    color: #fff;
-    padding: 10px;
-    border-radius: 10px;
-    display: inline-block;
-    position: relative;
-}
 
 /* Contenedor de las burbujas */
 .typing-indicator {
@@ -134,25 +101,6 @@ margin-top: 5vh; /* Subir el diseño 5% del alto de la ventana */
 }
 
 
-/* Hora del mensaje  */
-/* Estilos para el mensaje y la hora */
-
-.message-container {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; /* Alinear contenido a la izquierda */
-  
-}
-
-
-.message-time {
-  
-    margin-left: 13px;  /* Ajusta este valor para controlar el espacio */
-font-size: 0.5em; /* Tamaño de fuente más pequeño */
-color: #d3d0d0; /* Color de la hora */
-margin-top: -3px; /* alejar o Espacio superior */
-
-}
 
 /* ubicacion de la barra de mensaje 
 (donde uno escribe) */
@@ -420,11 +368,6 @@ position: relative;
 
 
 
-
-
-/* estilos agregados de chatbot version 2*/
-@font-face{font-family:'Poppins';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/poppins/v20/pxiEyp8kv8JHgFVrFJA.ttf) format('truetype')}@font-face{font-family:'Source Sans Pro';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/sourcesanspro/v21/6xK3dSBYKcSV-LCoeQqfX1RYOo3aPw.ttf) format('truetype')}@font-face{font-family:'Dosis';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/dosis/v26/HhyJU5sn9vOmLxNkIwRSjTVNWLEJN7MV3A.ttf) format('truetype')}@font-face{font-family:'Comfortaa';font-style:normal;font-weight:300;font-display:swap;src:url(https://fonts.gstatic.com/s/comfortaa/v40/1Pt_g8LJRfWJmhDAuUsSQamb1W0lwk4S4TbMPrQ.ttf) format('truetype')}@font-face{font-family:'Comfortaa';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/comfortaa/v40/1Pt_g8LJRfWJmhDAuUsSQamb1W0lwk4S4WjMPrQ.ttf) format('truetype')}@font-face{font-family:'Comfortaa';font-style:normal;font-weight:500;font-display:swap;src:url(https://fonts.gstatic.com/s/comfortaa/v40/1Pt_g8LJRfWJmhDAuUsSQamb1W0lwk4S4VrMPrQ.ttf) format('truetype')}@font-face{font-family:'Comfortaa';font-style:normal;font-weight:600;font-display:swap;src:url(https://fonts.gstatic.com/s/comfortaa/v40/1Pt_g8LJRfWJmhDAuUsSQamb1W0lwk4S4bbLPrQ.ttf) format('truetype')}@font-face{font-family:'Comfortaa';font-style:normal;font-weight:700;font-display:swap;src:url(https://fonts.gstatic.com/s/comfortaa/v40/1Pt_g8LJRfWJmhDAuUsSQamb1W0lwk4S4Y_LPrQ.ttf) format('truetype')}*{box-sizing:border-box;margin:0;padding:0px;transition:all .3s}html{scroll-behavior:smooth}body{background:#4a4d4c;color:#eee;font-family:"Poppins",sans-serif;background-attachment:fixed;position:relative}header{background-color:#010101;position:fixed;top:0;width:100vw;height:3.7em;display:flex;align-items:center;padding-left:1rem;box-shadow:#000 2px 0 4px;justify-content:space-around;transition:all 1s;font-family:"Comfortaa",cursive}header h2{font-size:1.35em;background:linear-gradient(141.27deg, #4effe2 -4.24%, #59fff1 21.25%, #68f4a7 44.33%, #79afff 83.46%);background-size:200%;-webkit-background-clip:text;background-clip:text;animation:gradient-heading 10s ease infinite;-webkit-text-fill-color:transparent}.typing{font-size:.85em;color:rgb(0, 102, 255);display:none}.suggest-chat{width:2em;animation:chat-btn 5 15s}main{height:86vh;margin-top:8vh}.chat-msg-box{background-color:#616161;padding:.5em 1em;clear:both;float:left;border-radius:.4em;max-width:75vw;margin:15px 0px 0px 20px;box-shadow:#000 2px 2px 6px}.chat-msg-box:last-child{margin-bottom:15vh}.chat-msg-box.clint{background-color:rgb(43, 137, 226);float:right;margin:15px 20px 0px 0px}.main-background{position:fixed;top:42vh;text-align:center;width:100vw;z-index:-1}.main-background div{width:auto;border:2px solid #3f3f3f;margin:auto;display:inline-block;padding:1em 2em;border-radius:.5em;max-width:85vw;box-shadow:inset #000 0 0 4px 1px;color:#757575}.main-background div h3{margin-bottom:.5em}.main-background div p{font-size:14px}.all-questions h2{padding:10vh 0 2vh 0;font-family:'Dosis',sans-serif;text-align:center;color:rgb(0, 119, 255)}.all-questions{display:none}.questions.container{display:flex;flex-direction:column;flex-wrap:nowrap;align-content:center;justify-content:space-around}.questions.container h2{padding-top:3.7em}.question{background-color:#616161;margin:.4em .8em;padding:.7em;border-radius:.4em;box-shadow:#000 2px 2px 6px;font-size:14px;background:linear-gradient(223deg, #616161, #454545)}.question:hover{background:rgb(43, 128, 226)}.question p::selection{background-color:rgb(30, 93, 210);color:black;user-select:all;-webkit-user-select:all}footer{background-color:#282828;position:fixed;bottom:0;width:100vw;height:3em;display:flex;align-items:center;box-shadow:#000 -2px 0 4px 1px;padding:0px 3vw}.chat-input{width:82vw;height:2.5em;border-radius:.5em;background:#4c4c4c;border:2px solid #6e6d6d;padding-left:.5em;color:#dbdbdb}.chat-input::placeholder{color:#9f9f9f}.chat-input:focus{outline:none;border-color:rgb(0, 132, 255)}.chat-input:invalid{border-color:rgb(0, 89, 255)}#chat-form{display:flex;align-items:center}.chat-submit{width:10vw;background:transparent;border:0}.chat-submit svg{fill:rgb(0, 102, 255)}.chat-submit svg:hover{fill:rgb(0, 153, 255)}.spinner{margin:2px auto 0;width:70px;text-align:center}.spinner>div{width:14px;height:14px;background-color:#eee;border-radius:100%;display:inline-block;-webkit-animation:sk-bouncedelay 1.4s infinite ease-in-out both;animation:sk-bouncedelay 1.4s infinite ease-in-out both}.spinner .bounce1{-webkit-animation-delay:-0.32s;animation-delay:-0.32s}.spinner .bounce2{-webkit-animation-delay:-0.16s;animation-delay:-0.16s}@media screen and (min-width:680px){.questions.container{flex-direction:row;flex-wrap:wrap}.question{width:31vw}.question:hover{transform:scale(1.1)}}@media screen and (max-width:680px){div p{font-size:14px}.chat-input{font-size:14px}}@keyframes gradient-heading{0%{background-position:0 50%}50%{background-position:100% 50%}to{background-position:0 50%}}@keyframes sk-bouncedelay{0%,80%,100%{-webkit-transform:scale(0);transform:scale(0)}40%{-webkit-transform:scale(1);transform:scale(1)}}@keyframes chat-btn{0%,30%,85%{transform:rotateY(0deg)}33%,80%{transform:rotateY(180deg)}}/*# sourceMappingURL=compiled.min.css.map */
-html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0;}main{display:block;}h1{font-size:2em;margin:.67em 0;}hr{box-sizing:content-box;height:0;overflow:visible}pre{font-family:monospace,monospace;font-size:1em}a{background-color:transparent;}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:bolder;}code,kbd,samp{font-family:monospace,monospace;font-size:1em}small{font-size:80%;}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline;}sub{bottom:-.25em;}sup{top:-.5em;}img{border-style:none;}button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;line-height:1.15;margin:0}button,input{overflow:visible;}button,select{text-transform:none;}button,[type="button"],[type="reset"],[type="submit"]{-webkit-appearance:button;}button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner{border-style:none;padding:0;}button:-moz-focusring,[type="button"]:-moz-focusring,[type="reset"]:-moz-focusring,[type="submit"]:-moz-focusring{outline:1px dotted ButtonText;}fieldset{padding:.35em .75em .625em;}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}progress{vertical-align:baseline;}textarea{overflow:auto;}[type="checkbox"],[type="radio"]{box-sizing:border-box;padding:0}[type="number"]::-webkit-inner-spin-button,[type="number"]::-webkit-outer-spin-button{height:auto;}[type="search"]{-webkit-appearance:textfield;outline-offset:-2px}[type="search"]::-webkit-search-decoration{-webkit-appearance:none;}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}details{display:block;}summary{display:list-item;}template{display:none;}[hidden]{display:none;}
 
 
 

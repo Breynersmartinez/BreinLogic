@@ -6,6 +6,7 @@ const answersbot = `https://generativelanguage.googleapis.com/v1beta/models/gemi
 
 
 
+
 let chatHistory = []; // Guarda el historial de la conversación
 
 async function generateResponse(userInput) {
