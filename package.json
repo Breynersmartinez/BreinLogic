@@ -21,7 +21,7 @@
     "node": "^18.20.7",
     "pdf-lib": "^1.17.1",
     "pdf-parse": "^1.1.1",
-    "pdfjs-dist": "^5.1.91",
+    "pdfjs-dist": "^2.16.105",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^7.2.0"

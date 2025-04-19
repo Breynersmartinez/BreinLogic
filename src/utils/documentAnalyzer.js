@@ -5,6 +5,8 @@ import * as mammoth from 'mammoth';
 // Asegúrate de configurar el worker para pdfjs
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 
+
+
 export async function analyzeDocument(file) {
   if (!file) return null;
   
