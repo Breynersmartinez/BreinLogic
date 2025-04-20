@@ -1,10 +1,13 @@
+// src/components/ChatInterface.jsx
 import { useState, useRef, useEffect } from 'react';
 import { Send, Menu, FileText } from 'lucide-react';
 import Header from './Header';
 import MessageList from './MessageList';
 import ChatInput from './ChatInput';
 import FileUpload from './FileUpload';
+import DocumentManager from './DocumentManager';
 import { API_URL } from '../config/api';
+import { useDocuments } from '../context/DocumentContext';
 
 export default function ChatInterface({ 
   messages, 
@@ -19,37 +22,54 @@ export default function ChatInterface({
   const [isLoading, setIsLoading] = useState(false);
   const [showFileUpload, setShowFileUpload] = useState(false);
   const messageEndRef = useRef(null);
+  const { activeDocument, getActiveDocumentContent } = useDocuments();
   
   // Auto-scroll to the bottom of messages
   useEffect(() => {
     messageEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
 
-  const handleFileContent = (content, fileName, fileType) => {
-    // Añadir mensaje del sistema explicando el archivo cargado
+  // Manejador cuando se procesa un archivo
+  const handleFileProcessed = (summary, docId) => {
+    // Añadir el mensaje del sistema informando sobre el documento cargado
     const systemMessage = {
       role: 'system',
-      content: `El usuario ha cargado un archivo: ${fileName} (${fileType})`
+      content: `Documento cargado con ID: ${docId}`
     };
     
-    // Añadir el contenido del archivo como mensaje del usuario
-    const fileMessage = {
-      role: 'user',
-      content: `Por favor, analiza este contenido del archivo ${fileName}:\n\n${content}`
+    // Añadir el mensaje con el resumen para el usuario
+    const summaryMessage = {
+      role: 'assistant',
+      content: summary
     };
     
-    setMessages(prev => [...prev, systemMessage, fileMessage]);
+    setMessages(prev => [...prev, systemMessage, summaryMessage]);
     setShowFileUpload(false);
-    
-    // Procesar automáticamente la solicitud
-    processApiRequest(fileMessage.content);
   };
 
+  // Procesar la solicitud API incluyendo el contexto del documento activo
   const processApiRequest = async (messageText) => {
     setIsLoading(true);
     setError(null);
     
     try {
+      // Obtener el contenido del documento activo (si existe)
+      const documentContent = getActiveDocumentContent();
+      
+      // Preparar el mensaje con contexto si hay un documento activo
+      let contextualizedMessage = messageText;
+      
+      if (documentContent && activeDocument) {
+        contextualizedMessage = `
+[Consulta sobre el documento: ${activeDocument.metadata.filename}]
+
+${messageText}
+
+[Contenido del documento para referencia:]
+${documentContent.substring(0, 4000)}${documentContent.length > 4000 ? '...' : ''}
+`;
+      }
+      
       const response = await fetch(API_URL, {
         method: 'POST',
         headers: {
@@ -59,7 +79,7 @@ export default function ChatInterface({
           contents: [
             {
               role: 'user',
-              parts: [{ text: messageText }]
+              parts: [{ text: contextualizedMessage }]
             }
           ]
         })
@@ -123,19 +143,34 @@ export default function ChatInterface({
                 </button>
               </div>
               <FileUpload 
-                onFileContent={handleFileContent}
+                onFileProcessed={handleFileProcessed}
                 setError={setError}
               />
             </div>
           </div>
         )}
         
-        <MessageList 
-          messages={messages} 
-          isLoading={isLoading} 
-          error={error} 
-          messageEndRef={messageEndRef} 
-        />
+        <div className="max-w-3xl mx-auto">
+          <DocumentManager />
+          
+          {activeDocument && (
+            <div className="mb-4 bg-blue-900/20 p-3 rounded-lg text-sm border border-blue-800/50">
+              <p className="flex items-center text-blue-300">
+                <FileText size={16} className="mr-2" />
+                <span>
+                  Contexto activo: <strong>{activeDocument.metadata.filename}</strong>
+                </span>
+              </p>
+            </div>
+          )}
+          
+          <MessageList 
+            messages={messages} 
+            isLoading={isLoading} 
+            error={error} 
+            messageEndRef={messageEndRef} 
+          />
+        </div>
       </main>
       
       <ChatInput 
@@ -144,6 +179,7 @@ export default function ChatInterface({
         sendMessage={sendMessage}
         showFileUpload={showFileUpload}
         setShowFileUpload={setShowFileUpload}
+        hasActiveDocument={!!activeDocument}
       />
     </div>
   );
