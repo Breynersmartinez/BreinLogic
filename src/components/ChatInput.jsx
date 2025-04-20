@@ -1,12 +1,13 @@
 // src/components/ChatInput.jsx
-import { Send, FileUp, X } from 'lucide-react';
+import { Send, FileUp, X, FileText } from 'lucide-react';
 
 export default function ChatInput({ 
   input, 
   setInput, 
   sendMessage, 
   showFileUpload, 
-  setShowFileUpload 
+  setShowFileUpload,
+  hasActiveDocument
 }) {
   const handleKeyDown = (e) => {
     if (e.key === 'Enter' && !e.shiftKey) {
@@ -22,6 +23,13 @@ export default function ChatInput({
   return (
     <footer className="border-t border-gray-700 p-4">
       <div className="max-w-3xl mx-auto">
+        {hasActiveDocument && (
+          <div className="mb-2 flex items-center text-xs text-blue-400">
+            <FileText size={12} className="mr-1" />
+            <span>Las respuestas incluirán el contexto del documento activo</span>
+          </div>
+        )}
+        
         <div className="flex items-end bg-gray-800 rounded-lg border border-gray-700">
           <button 
             className={`p-3 ${showFileUpload ? 'text-blue-400' : 'text-gray-500 hover:text-gray-300'}`}
@@ -33,7 +41,9 @@ export default function ChatInput({
           
           <textarea
             rows="1"
-            placeholder="Mensaje a BreinLogic..."
+            placeholder={hasActiveDocument 
+              ? "Pregunta sobre el documento cargado..." 
+              : "Mensaje a BreinLogic..."}
             className="flex-1 bg-transparent p-3 resize-none focus:outline-none"
             value={input}
             onChange={(e) => setInput(e.target.value)}

@@ -2,11 +2,13 @@
 import { useState } from 'react';
 import { Upload, FileText, AlertCircle } from 'lucide-react';
 import { analyzeDocument, getBasicTextAnalysis } from '../utils/documentAnalyzer';
+import { useDocuments } from '../context/DocumentContext';
 
-export default function FileUpload({ onFileContent, setError }) {
+export default function FileUpload({ onFileProcessed, setError }) {
   const [isDragging, setIsDragging] = useState(false);
   const [fileName, setFileName] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const { addDocument } = useDocuments();
 
   const handleDragOver = (e) => {
     e.preventDefault();
@@ -61,9 +63,18 @@ export default function FileUpload({ onFileContent, setError }) {
       // Realizar análisis básico del texto
       const textAnalysis = getBasicTextAnalysis(documentData.text);
       
+      // Añadir el documento al contexto
+      const docWithAnalysis = {
+        ...documentData,
+        analysis: textAnalysis,
+        fileSize: file.size
+      };
+      
+      const addedDoc = addDocument(docWithAnalysis);
+      
       // Preparar un resumen para el usuario
       const fileSummary = `
-# Análisis del documento: ${file.name}
+# Documento cargado: ${file.name}
 
 ## Información general
 - Tipo: ${documentData.metadata.type}
@@ -74,19 +85,15 @@ export default function FileUpload({ onFileContent, setError }) {
 - Caracteres: ${textAnalysis.charCount}
 - Oraciones: ${textAnalysis.sentenceCount}
 - Párrafos: ${textAnalysis.paragraphCount}
-- Longitud media de palabra: ${textAnalysis.averageWordLength.toFixed(2)} caracteres
 
-## Palabras más frecuentes
-${textAnalysis.topWords.map(([word, count]) => `- "${word}": ${count} veces`).join('\n')}
-
-## Contenido extraído
+## Contenido (primeras 500 caracteres)
 \`\`\`
-${documentData.text.slice(0, 1500)}${documentData.text.length > 1500 ? '...' : ''}
+${documentData.text.slice(0, 500)}${documentData.text.length > 500 ? '...' : ''}
 \`\`\`
 
-¿Qué te gustaría saber sobre este documento?`;
+El documento ha sido cargado y está disponible para consulta. Puedes hacerme preguntas sobre su contenido.`;
 
-      onFileContent(fileSummary, file.name, file.type);
+      onFileProcessed(fileSummary, addedDoc.id);
     } catch (err) {
       console.error('Error reading file:', err);
       setError(`Error al procesar el archivo: ${err.message}`);
@@ -146,8 +153,8 @@ ${documentData.text.slice(0, 1500)}${documentData.text.length > 1500 ? '...' : '
         <div className="mt-2 p-2 bg-gray-800 rounded text-xs flex items-start">
           <AlertCircle size={14} className="text-yellow-400 mr-1 mt-0.5 flex-shrink-0" />
           <span>
-            El análisis de documentos se realiza localmente en tu navegador. Para documentos grandes o complejos, 
-            el proceso puede tardar unos momentos.
+            El análisis de documentos se realiza localmente en tu navegador. Los documentos cargados 
+            estarán disponibles durante toda la sesión de chat.
           </span>
         </div>
       )}
