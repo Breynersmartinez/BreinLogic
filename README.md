@@ -12,7 +12,7 @@ Este proyecto es una aplicación web que integra un chatbot con la capacidad de 
 ## ⚡ Instalación y Uso
 1. **Clonar el repositorio**:
    ```sh
-   git clone git@github.com:Breynersmartinez/Chat_chatbot.github.io.git
+   git clone https://github.com/Breynersmartinez/BreinLogic
    ```
 2. **Abrir el archivo `index.html` en un navegador**.
 3. **Cargar un archivo PDF** desde la interfaz.
@@ -29,5 +29,5 @@ Si tienes preguntas o sugerencias, no dudes en contactarme.
 📧 **Correo:** breynersmartinezmunoz@gmail.com
 
   ```sh
-https://developers.google.com/identity/sign-in/web/sign-in?hl=es-419
+https://github.com/Breynersmartinez
   ```
