@@ -1,5 +1,12 @@
 # HomePageBreinlogic
 
+### Construir la aplicación Ejecuta el siguiente comando para generar la versión de producción:
+
+```bash
+ng build --configuration=production
+```
+
+
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.11.
 
 ## Development server
