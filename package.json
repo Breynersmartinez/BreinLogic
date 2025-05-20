@@ -20,7 +20,7 @@
     "mammoth": "^1.9.0",
     "pdf-lib": "^1.17.1",
     "pdf-parse": "^1.1.1",
-    "pdfjs-dist": "^2.16.105",
+    "pdfjs-dist": "^5.2.133",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^7.2.0"
@@ -37,6 +37,6 @@
     "gh-pages": "^6.3.0",
     "postcss": "^8.4.35",
     "tailwindcss": "^3.4.1",
-    "vite": "^5.4.19"
+    "vite": "^6.3.5"
   }
 }
