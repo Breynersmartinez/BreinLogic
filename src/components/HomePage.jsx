@@ -2,31 +2,39 @@ import React, { useState } from 'react';
 import { Brain, MessageSquare, FileText, Zap, Star, Send, Upload, Bot, Users } from 'lucide-react';
 
 const HomePage = ({ onStartChat, messages }) => {
-  const [testimonialData, setTestimonialData] = useState({
-    name: '',
-    email: '',
-    rating: 5,
-    comment: ''
-  });
-  const [submitTestimonial, setSubmitTestimonial] = useState(false);
+ // Estado para el formulario
+const [formData, setFormData] = useState({
+  name: "",
+  email: "",
+  message: ""
+});
 
-  const handleTestimonialSubmit = async (e) => {
+ // Estado para loading
+const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitTestimonial(true);
+    setLoading(true); // 👈 Activamos el estado de "enviando"
     try {
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      alert("¡Gracias por tu comentario! Será revisado y publicado pronto.");
-      setTestimonialData({ name: '', email: '', rating: 5, comment: '' });
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/contact`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+      const data = await res.text();
+      alert(data);
+      setFormData({ name: "", email: "", message: "" });
     } catch (err) {
-      alert("Error al enviar el comentario");
+      console.error(err);
+      alert("Error al enviar el mensaje ❌");
     } finally {
-      setSubmitTestimonial(false);
+      setLoading(false); // 👈 Se quita el "enviando"
     }
   };
 
-  const handleTestimonialChange = (e) => {
-    setTestimonialData({
-      ...testimonialData,
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
       [e.target.name]: e.target.value
     });
   };
@@ -59,21 +67,21 @@ const HomePage = ({ onStartChat, messages }) => {
       name: "María González",
       role: "Estudiante de Medicina",
       comment: "BreinLogic me ha ayudado enormemente en mis estudios. Puede analizar mis PDFs de anatomía y responder preguntas específicas.",
-      rating: 5,
+     
       avatar: "MG"
     },
     {
       name: "Carlos Ruiz",
       role: "Investigador",
       comment: "La capacidad de mantener contexto en conversaciones largas es impresionante. Una herramienta esencial.",
-      rating: 5,
+    
       avatar: "CR"
     },
     {
       name: "Ana Martínez",
       role: "Profesora",
       comment: "Uso BreinLogic para preparar clases y analizar papers. La precisión en las respuestas es excelente.",
-      rating: 5,
+     
       avatar: "AM"
     }
   ];
@@ -128,18 +136,22 @@ const HomePage = ({ onStartChat, messages }) => {
 
             {/* Stats */}
             <div className="flex justify-center space-x-8 mb-12 text-gray-400">
+                 {/*
               <div className="flex items-center space-x-2">
                 <Users className="h-5 w-5" />
                 <span className="text-sm">1000+ usuarios</span>
               </div>
+              */}
               <div className="flex items-center space-x-2">
                 <FileText className="h-5 w-5" />
                 <span className="text-sm">PDF compatible</span>
               </div>
+               {/*
               <div className="flex items-center space-x-2">
                 <Bot className="h-5 w-5" />
                 <span className="text-sm">IA avanzada</span>
               </div>
+              */}
             </div>
 
             {/* Quick Start Options */}
@@ -245,85 +257,61 @@ const HomePage = ({ onStartChat, messages }) => {
                       <p className="text-gray-400 text-sm">{testimonial.role}</p>
                     </div>
                   </div>
-                  <div className="flex mb-3">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="h-4 w-4 text-yellow-400 fill-current" />
-                    ))}
-                  </div>
+              
                   <p className="text-gray-300 text-sm">{testimonial.comment}</p>
                 </div>
               ))}
             </div>
 
             {/* Add Testimonial */}
-            <div className="bg-gray-900/50 backdrop-blur-md rounded-xl p-6 max-w-2xl mx-auto">
-              <h3 className="text-xl font-bold mb-4 text-center">¡Comparte tu experiencia!</h3>
-              <div className="space-y-4">
-                <div className="grid md:grid-cols-2 gap-4">
-                  <input
-                    type="text"
-                    name="name"
-                    value={testimonialData.name}
-                    onChange={handleTestimonialChange}
-                    className="px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white placeholder-gray-400"
-                    placeholder="Tu nombre"
-                  />
-                  <input
-                    type="email"
-                    name="email"
-                    value={testimonialData.email}
-                    onChange={handleTestimonialChange}
-                    className="px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white placeholder-gray-400"
-                    placeholder="tu@email.com"
-                  />
-                </div>
-                
-                <div>
-                  <label className="block text-sm font-medium mb-2">Calificación</label>
-                  <div className="flex space-x-1">
-                    {[1, 2, 3, 4, 5].map((rating) => (
-                      <button
-                        key={rating}
-                        onClick={() => setTestimonialData({...testimonialData, rating})}
-                        className="focus:outline-none"
-                      >
-                        <Star 
-                          className={`h-6 w-6 ${rating <= testimonialData.rating ? 'text-yellow-400 fill-current' : 'text-gray-400'} hover:text-yellow-400 transition-colors`}
-                        />
-                      </button>
-                    ))}
-                  </div>
-                </div>
-                
-                <textarea
-                  name="comment"
-                  value={testimonialData.comment}
-                  onChange={handleTestimonialChange}
-                  rows={3}
-                  className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white placeholder-gray-400"
-                  placeholder="Comparte tu experiencia con BreinLogic..."
+            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8">
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div>
+                <label className="block text-sm font-medium mb-2">Nombre</label>
+                <input
+                  type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 bg-white/20 border border-white/30 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent placeholder-white/70"
+                  placeholder="Tu nombre completo"
                 />
-                
-                <button
-                  onClick={handleTestimonialSubmit}
-                  disabled={submitTestimonial}
-                  className={`w-full px-6 py-3 rounded-lg transition-all duration-300 flex items-center justify-center ${
-                    submitTestimonial 
-                      ? "bg-gray-600 cursor-not-allowed" 
-                      : "bg-gradient-to-r from-blue-500 to-purple-500 hover:shadow-lg transform hover:-translate-y-1"
-                  }`}
-                >
-                  {submitTestimonial ? (
-                    <>⏳ Enviando...</>
-                  ) : (
-                    <>
-                      <Send className="h-4 w-4 mr-2" />
-                      Enviar Testimonio
-                    </>
-                  )}
-                </button>
               </div>
-            </div>
+              <div>
+                <label className="block text-sm font-medium mb-2">Email</label>
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 bg-white/20 border border-white/30 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent placeholder-white/70"
+                  placeholder="tu@email.com"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium mb-2">Mensaje</label>
+                <textarea
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  rows={4}
+                  className="w-full px-4 py-3 bg-white/20 border border-white/30 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent placeholder-white/70"
+                  placeholder="Cuéntanos sobre tu proyecto..."
+                />
+              </div>
+              <button
+                type="submit"
+                disabled={loading} // 👈 Deshabilita si está enviando
+                className={`w-full px-8 py-3 rounded-lg transition-all duration-300 ${
+                  loading 
+                    ? "bg-gray-500 cursor-not-allowed" 
+                    : "bg-gradient-to-r from-blue-500 to-purple-500 hover:shadow-lg transform hover:-translate-y-1"
+                }`}
+              >
+                {loading ? "⏳ Enviando..." : "Enviar Mensaje"}
+              </button>
+            </form>
+          </div>
           </div>
         </div>
       </div>
